@@ -37,7 +37,6 @@ class Triangle:
                 accumulated_error += distance_x
                 current_y += step_y
 
-
     def draw(self):
         canvas = [["." for _ in range(40)] for _ in range(40)]
 
@@ -51,7 +50,7 @@ class Triangle:
             canvas, self.vertex_c_x, self.vertex_c_y, self.vertex_a_x, self.vertex_a_y
         )
 
-        print("\nПоле 40x40 (Треугольник):")
+        print("\n40x40 field (Triangle):")
         for row in canvas:
             print("".join(row))
 

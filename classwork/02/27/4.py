@@ -1,5 +1,5 @@
 class CipherMaster:
-    alphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя"
+    alphabet = "abcdefghijklmnopqrstuvwxyz"
 
     def process_text(self, text, shift, is_encrypt):
         text = text.lower()
@@ -17,18 +17,18 @@ class CipherMaster:
         return "".join(result)
 
 
-# Проверка
+# Check
 cipher_master = CipherMaster()
 print(
     cipher_master.process_text(
-        text="Однажды ревьюер принял проект с первого раза, с тех пор я его боюсь",
+        text="Once a reviewer accepted a project on the first try, and ever since then I have feared them",
         shift=2,
         is_encrypt=True,
     )
 )
 print(
     cipher_master.process_text(
-        text="Олебэи яфвнэ мроплж сэжи — э пэй рдв злййвкпш лп нвящывнэ",
+        text="rqeg c tgxkgygt ceegrvgf c rtqlgev qp vjg hktuv vta, cpf gxgt ukpeg vjgp k jcxg hgctgf vjgo",
         shift=-3,
         is_encrypt=False,
     )

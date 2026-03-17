@@ -1,86 +1,100 @@
 class Student:
-    """Базовый класс СТУДЕНТ"""
+    """Base STUDENT class."""
+
     def __init__(self, first_name, last_name, age):
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
     def display_info(self):
-        """Метод вывода информации (переопределяется в дочерних классах)"""
-        return f"Студент: {self.first_name} {self.last_name}, Возраст: {self.age}"
+        """Display information about the object."""
+        return f"Student: {self.first_name} {self.last_name}, Age: {self.age}"
 
     def matches_conditions(self, **kwargs):
         """
-        Универсальный метод проверки соответствия условиям.
-        Передаются именованные аргументы, например: age=20, course=3
+        Universal method for checking whether an object matches conditions.
+
+        Named arguments are passed, for example: age=20, course=3.
         """
         for key, value in kwargs.items():
-            # getattr возвращает значение атрибута объекта, если его нет — возвращает None
+            # getattr returns the attribute value or None if the attribute is missing.
             if getattr(self, key, None) != value:
                 return False
         return True
 
 
 class Bachelor(Student):
-    """Дочерний класс БАКАЛАВР"""
+    """Derived BACHELOR class."""
+
     def __init__(self, first_name, last_name, age, course):
         super().__init__(first_name, last_name, age)
         self.course = course
 
     def display_info(self):
-        return f"[Бакалавр] {self.first_name} {self.last_name}, Возраст: {self.age}, Курс: {self.course}"
+        return (
+            f"[Bachelor] {self.first_name} {self.last_name}, "
+            f"Age: {self.age}, Course: {self.course}"
+        )
 
 
 class Master(Student):
-    """Дочерний класс МАГИСТР"""
+    """Derived MASTER class."""
+
     def __init__(self, first_name, last_name, age, specialization):
         super().__init__(first_name, last_name, age)
         self.specialization = specialization
 
     def display_info(self):
-        return f"[Магистр] {self.first_name} {self.last_name}, Возраст: {self.age}, Спец-ть: {self.specialization}"
+        return (
+            f"[Master] {self.first_name} {self.last_name}, "
+            f"Age: {self.age}, Specialization: {self.specialization}"
+        )
 
 
 class Postgraduate(Student):
-    """Дочерний класс АСПИРАНТ"""
+    """Derived POSTGRADUATE class."""
+
     def __init__(self, first_name, last_name, age, thesis_topic):
         super().__init__(first_name, last_name, age)
         self.thesis_topic = thesis_topic
 
     def display_info(self):
-        return f"[Аспирант] {self.first_name} {self.last_name}, Возраст: {self.age}, Тема диссертации: '{self.thesis_topic}'"
-
+        return (
+            f"[Postgraduate] {self.first_name} {self.last_name}, "
+            f"Age: {self.age}, Thesis topic: '{self.thesis_topic}'"
+        )
 
 
 students_db = [
-    Bachelor("Иван", "Иванов", 20, 3),
-    Bachelor("Анна", "Петрова", 19, 2),
-    Bachelor("Максим", "Сидоров", 20, 3),
-    Master("Елена", "Смирнова", 23, "Программная инженерия"),
-    Master("Алексей", "Волков", 24, "Анализ данных"),
-    Postgraduate("Дмитрий", "Соколов", 26, "Оптимизация ИИ-моделей"),
-    Postgraduate("Ольга", "Морозова", 25, "Информационная безопасность")
+    Bachelor("Ivan", "Ivanov", 20, 3),
+    Bachelor("Anna", "Petrova", 19, 2),
+    Bachelor("Maxim", "Sidorov", 20, 3),
+    Master("Elena", "Smirnova", 23, "Software Engineering"),
+    Master("Alexey", "Volkov", 24, "Data Analysis"),
+    Postgraduate("Dmitry", "Sokolov", 26, "AI Model Optimization"),
+    Postgraduate("Olga", "Morozova", 25, "Information Security"),
 ]
 
-print("=== ПОЛНАЯ БАЗА СТУДЕНТОВ ===")
+print("=== COMPLETE STUDENT DATABASE ===")
 for student in students_db:
     print(student.display_info())
-print("\n" + "="*30 + "\n")
+print("\n" + "=" * 30 + "\n")
 
 
-def search_students(db, **conditions):
-    """Вспомогательная функция для вывода результатов поиска"""
-    print(f"--- Результаты поиска по условиям: {conditions} ---")
+def search_students(database, **conditions):
+    """Helper function for printing search results."""
+    print(f"--- Search results for conditions: {conditions} ---")
     found = False
-    for student in db:
+    for student in database:
         if student.matches_conditions(**conditions):
             print(student.display_info())
             found = True
     if not found:
-        print("Студенты, удовлетворяющие условиям, не найдены.")
+        print("No students matching the conditions were found.")
     print()
+
 
 search_students(students_db, age=20)
 search_students(students_db, course=3)
-search_students(students_db, specialization="Программная инженерия")
-search_students(students_db, age=25, thesis_topic="Информационная безопасность")
+search_students(students_db, specialization="Software Engineering")
+search_students(students_db, age=25, thesis_topic="Information Security")

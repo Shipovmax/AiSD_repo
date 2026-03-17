@@ -2,71 +2,83 @@ from datetime import datetime
 
 
 class Company:
-    """Класс для представления строительной компании."""
+    """Class representing a construction company."""
 
     def __init__(self, name):
         self.name = name
-        self.employees = []  # Список сотрудников компании
+        self.employees = []  # List of company employees.
 
     def add_employee(self, worker):
-        """Добавляет рабочего в штат компании и связывает рабочего с этой компанией."""
+        """Add a worker to the company staff and link the worker to this company."""
         self.employees.append(worker)
         worker.company = self
 
     def __str__(self):
-        return f"Компания '{self.name}' (сотрудников: {len(self.employees)})"
+        return f"Company '{self.name}' (employees: {len(self.employees)})"
 
 
 class Worker:
-    """Класс для описания рабочего."""
+    """Class describing a worker."""
 
     def __init__(self, name, qualification, company=None):
         self.name = name
         self.qualification = qualification
         self.company = company
-        # Если при создании указана компания, автоматически записываем в неё рабочего
+        # If a company is provided during creation, register the worker automatically.
         if company:
             company.add_employee(self)
 
     def __str__(self):
-        # Если компания не задана, выводим 'Самозанятый'
-        comp_name = self.company.name if self.company else "Самозанятый"
-        return f"{self.name} ({self.qualification}) — {comp_name}"
+        # If no company is assigned, display 'Self-employed'.
+        company_name = self.company.name if self.company else "Self-employed"
+        return f"{self.name} ({self.qualification}) - {company_name}"
 
 
 class House:
-    """Класс для описания строительного объекта (дома)."""
+    """Class describing a construction object (house)."""
 
-    def __init__(self, address, floors, entrances, district, workers, start_date_str, end_date_str):
+    def __init__(
+        self,
+        address,
+        floors,
+        entrances,
+        district,
+        workers,
+        start_date_str,
+        end_date_str,
+    ):
         self.address = address
         self.floors = floors
         self.entrances = entrances
         self.district = district
-        self.workers = workers  # Список рабочих, закрепленных за объектом
+        self.workers = workers  # Workers assigned to the object.
 
-        # Преобразуем строки с датами в объекты datetime для удобного сравнения
+        # Convert date strings to datetime objects for convenient comparison.
         self.start_date = datetime.strptime(start_date_str, "%d.%m.%Y")
         self.end_date = datetime.strptime(end_date_str, "%d.%m.%Y")
 
     def is_worker_busy_in_year(self, worker, year):
-        """Проверяет, работал ли конкретный рабочий на этом объекте в указанном году."""
-        # 1. Проверяем, числится ли вообще рабочий в списке этого дома
+        """Check whether a specific worker was assigned to this object in the given year."""
+        # 1. Check whether the worker is assigned to this house at all.
         if worker not in self.workers:
             return False
 
-        # 2. Определяем границы искомого года
+        # 2. Determine the boundaries of the requested year.
         year_start = datetime(year, 1, 1)
         year_end = datetime(year, 12, 31)
 
-        # 3. Логика пересечения интервалов:
+        # 3. Interval overlap logic.
         return self.start_date <= year_end and self.end_date >= year_start
 
     def __str__(self):
-        return f"Объект в р-не {self.district} ({self.address}, {self.floors} этажей, {self.entrances} подъездов)"
+        return (
+            f"Object in {self.district} district "
+            f"({self.address}, {self.floors} floors, {self.entrances} entrances)"
+        )
 
 
 class Registry:
-    """Класс-реестр для хранения всех данных и вывода отчетов."""
+    """Registry class for storing all data and generating reports."""
 
     def __init__(self):
         self.houses = []
@@ -79,46 +91,46 @@ class Registry:
         self.workers.append(worker)
 
     def show_worker_statistics(self, year):
-        """Формирует и печатает отчет о занятости всех рабочих за конкретный год."""
-        print(f"\n--- Отчет по занятости рабочих за {year} год ---")
+        """Generate and print a report on worker workload for a specific year."""
+        print(f"\n--- Worker workload report for {year} ---")
         for worker in self.workers:
-            # Ищем все дома, где этот рабочий был занят в указанном году
-            projects = [h for h in self.houses if h.is_worker_busy_in_year(worker, year)]
+            # Find all houses where this worker was assigned in the specified year.
+            projects = [house for house in self.houses if house.is_worker_busy_in_year(worker, year)]
             count = len(projects)
 
             if count > 0:
-                print(f" {worker.name}: задействован в {count} проектах одновременно.")
-                for p in projects:
-                    print(f"   - {p}")
+                print(f" {worker.name}: involved in {count} projects simultaneously.")
+                for project in projects:
+                    print(f"   - {project}")
             else:
-                print(f" {worker.name}: в этом году проектов не было.")
+                print(f" {worker.name}: there were no projects in this year.")
 
 
-# --- Основной блок программы ---
+# --- Main program block ---
 if __name__ == "__main__":
-    # Создаем компании
-    stroy = Company("СтройГрупп")
-    mega = Company("МегаДом")
+    # Create companies.
+    stroy = Company("StroyGroup")
+    mega = Company("MegaHouse")
 
-    # Создаем рабочих и привязываем их к компаниям
-    w1 = Worker("Иванов", "Бригадир", stroy)
-    w2 = Worker("Петров", "Маляр", stroy)
-    w3 = Worker("Сидоров", "Электрик", mega)
+    # Create workers and attach them to companies.
+    worker_1 = Worker("Ivanov", "Foreman", stroy)
+    worker_2 = Worker("Petrov", "Painter", stroy)
+    worker_3 = Worker("Sidorov", "Electrician", mega)
 
-    # Инициализируем реестр и наполняем его данными
+    # Initialize the registry and populate it with data.
     registry = Registry()
-    registry.add_worker(w1)
-    registry.add_worker(w2)
-    registry.add_worker(w3)
+    registry.add_worker(worker_1)
+    registry.add_worker(worker_2)
+    registry.add_worker(worker_3)
 
-    # Добавляем объекты строительства с разными сроками
-    registry.add_house(House("ул. Ленина, 10", 5, 4, "Центральный", [w1, w2], "01.01.2022", "31.12.2022"))
-    registry.add_house(House("пр. Мира, 5", 9, 2, "Западный", [w1, w3], "01.06.2022", "01.06.2023"))
-    registry.add_house(House("ул. Северная, 2", 16, 1, "Северный", [w1], "01.01.2023", "01.12.2023"))
+    # Add construction objects with different schedules.
+    registry.add_house(House("10 Lenin St.", 5, 4, "Central", [worker_1, worker_2], "01.01.2022", "31.12.2022"))
+    registry.add_house(House("5 Mira Ave.", 9, 2, "Western", [worker_1, worker_3], "01.06.2022", "01.06.2023"))
+    registry.add_house(House("2 Severnaya St.", 16, 1, "Northern", [worker_1], "01.01.2023", "01.12.2023"))
 
-    # Интерактивная часть: запрашиваем год у пользователя
+    # Interactive section: request a year from the user.
     try:
-        user_year = int(input("Введите год для проверки статистики (например, 2022): "))
+        user_year = int(input("Enter a year to check statistics for (for example, 2022): "))
         registry.show_worker_statistics(user_year)
     except ValueError:
-        print("Ошибка: пожалуйста, введите число (год).")
+        print("Error: please enter a numeric year value.")

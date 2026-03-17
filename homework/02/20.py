@@ -1,7 +1,9 @@
-"""Задача . Создайте класс Часы по переводу минут в часы или секунды.
-Пользователь должен задать время, например, 89 минут, и также пользователь должен
-определить в часы или в секунды перевести заданное время. Используйте
-принципы абстракции, инкапсуляции, а также конструктор классов"""
+"""Create a Clock class for converting minutes to hours or seconds.
+
+The user should specify a time value, for example 89 minutes, and also choose
+whether to convert the given time to hours or to seconds. Use abstraction,
+encapsulation, and a class constructor.
+"""
 
 
 class Clock:
@@ -15,16 +17,16 @@ class Clock:
         return self.__minutes * 60
 
 
-# Тесты
+# Tests
 
-minutes = int(input("Введите количество минут: "))
+minutes = int(input("Enter the number of minutes: "))
 clock = Clock(minutes)
 
-choice = input("Перевести в (часы/секунды): ").lower()
+choice = input("Convert to (hours/seconds): ").lower()
 
-if choice == "часы":
-    print("Часы:", clock.to_hours())
-elif choice == "секунды":
-    print("Секунды:", clock.to_seconds())
+if choice == "hours":
+    print("Hours:", clock.to_hours())
+elif choice == "seconds":
+    print("Seconds:", clock.to_seconds())
 else:
-    print("Неверный выбор")
+    print("Invalid choice")

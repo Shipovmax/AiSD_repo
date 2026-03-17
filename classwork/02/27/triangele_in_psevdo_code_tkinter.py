@@ -87,7 +87,7 @@ class Triangle:
 
 def render_gui():
     root = tk.Tk()
-    root.title("Алгоритм Брезенхема")
+    root.title("Bresenham Algorithm")
     root.configure(bg="#000000")
 
     cell_size = 15

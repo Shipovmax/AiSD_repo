@@ -2,7 +2,7 @@ class Product:
     def __init__(self, name, manufacturer, price):
         self._name = name
         self._manufacturer = manufacturer
-        self.price = price  # Вызывает сеттер для валидации
+        self.price = price  # Calls the setter for validation.
 
     @property
     def name(self):
@@ -23,11 +23,14 @@ class Product:
         self._price = value
 
     def __str__(self):
-        """Формальный вывод информации о товаре"""
-        return f"Product: {self.name}, Manufacturer: {self.manufacturer}, Price: {self.price}"
+        """Return a formal string representation of the product."""
+        return (
+            f"Product: {self.name}, Manufacturer: {self.manufacturer}, "
+            f"Price: {self.price}"
+        )
 
     def matches(self, search_name=None, search_price=None):
-        """Метод для проверки условий поиска"""
+        """Check whether the product matches the search conditions."""
         if search_name and search_name.lower() in self.name.lower():
             return True
         if search_price is not None and self.price == search_price:
@@ -74,7 +77,6 @@ class Food(Product):
         return f"{super().__str__()}, Expires: {self.expiration_date}"
 
 
-
 if __name__ == "__main__":
     products = [
         Electronics("iPhone 15", "Apple", 100000, "Smartphone"),
@@ -85,19 +87,19 @@ if __name__ == "__main__":
     ]
 
     print("--- Full Product List ---")
-    for p in products:
-        print(p)
+    for product in products:
+        print(product)
 
-    # Поиск по названию
+    # Search by name.
     target_name = "iPhone"
     print(f"\n--- Search Results (Name: '{target_name}') ---")
-    for p in products:
-        if p.matches(search_name=target_name):
-            print(p)
+    for product in products:
+        if product.matches(search_name=target_name):
+            print(product)
 
-    # Поиск по цене
+    # Search by price.
     target_price = 3000
     print(f"\n--- Search Results (Price: '{target_price}') ---")
-    for p in products:
-        if p.matches(search_price=target_price):
-            print(p)
+    for product in products:
+        if product.matches(search_price=target_price):
+            print(product)

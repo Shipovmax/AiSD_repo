@@ -1,16 +1,17 @@
 # ==================================================
-# ЗАДАНИЕ 1
+# TASK 1
 # ==================================================
-# УСЛОВИЕ:
-# Создать класс Car, который содержит следующие поля:
-# - марка автомобиля
-# - цвет автомобиля
-# - максимальная скорость
+# DESCRIPTION:
+# Create a Car class that contains the following fields:
+# - car brand
+# - car color
+# - maximum speed
 #
-# Создать два объекта данного класса и вывести их данные.
+# Create two objects of this class and print their data.
 #
-# РЕШЕНИЕ:
+# SOLUTION:
 # ==================================================
+
 
 class Car:
     def __init__(self, brand, color, max_speed):
@@ -23,7 +24,7 @@ car1 = Car("BMW", "Black", 250)
 car2 = Car("Audi", "White", 230)
 
 print()
-print("Задание 1")
+print("Task 1")
 print()
 
 print(car1.brand, car1.color, car1.max_speed)
@@ -31,16 +32,16 @@ print(car2.brand, car2.color, car2.max_speed)
 print()
 
 # ==================================================
-# ЗАДАНИЕ 2
+# TASK 2
 # ==================================================
-# УСЛОВИЕ:
-# Для объектов класса Car добавить динамические атрибуты:
-# - вес автомобиля
-# - количество владельцев
+# DESCRIPTION:
+# Add dynamic attributes to Car class objects:
+# - car weight
+# - number of owners
 #
-# Вывести новые данные на экран.
+# Print the new data.
 #
-# РЕШЕНИЕ:
+# SOLUTION:
 # ==================================================
 
 car1.weight = 1800
@@ -50,52 +51,52 @@ car2.weight = 1650
 car2.owners = 1
 
 print()
-print("Задание 2")
+print("Task 2")
 print()
 
-print("Вес:", car1.weight, "Владельцы:", car1.owners)
-print("Вес:", car2.weight, "Владельцы:", car2.owners)
+print("Weight:", car1.weight, "Owners:", car1.owners)
+print("Weight:", car2.weight, "Owners:", car2.owners)
 print()
 
 
 # ==================================================
-# ЗАДАНИЕ 3
+# TASK 3
 # ==================================================
-# УСЛОВИЕ:
-# В класс Car добавить методы:
-# - вычисление общего веса
-# - сравнение веса двух автомобилей
-# - вывод полной информации
+# DESCRIPTION:
+# Add methods to the Car class:
+# - total weight calculation
+# - comparison of two cars by weight
+# - full information output
 #
-# Реализовать работу методов.
+# Implement the methods.
 #
-# РЕШЕНИЕ:
+# SOLUTION:
 # ==================================================
+
 
 class CarAdvanced:
-    def __init__(self, brand, color, max_speed, weight, count):
+    def __init__(self, brand, color, max_speed, weight, quantity):
         self.brand = brand
         self.color = color
         self.max_speed = max_speed
         self.weight = weight
-        self.count = count
+        self.quantity = quantity
 
     def total_weight(self):
-        return self.weight * self.count
+        return self.weight * self.quantity
 
     def compare(self, other):
         if self.total_weight() > other.total_weight():
-            return "Первая машина тяжелее"
-        elif self.total_weight() < other.total_weight():
-            return "Вторая машина тяжелее"
-        else:
-            return "Вес одинаковый"
+            return "The first car is heavier"
+        if self.total_weight() < other.total_weight():
+            return "The second car is heavier"
+        return "The weight is the same"
 
     def info(self):
-        print("Марка:", self.brand)
-        print("Цвет:", self.color)
-        print("Скорость:", self.max_speed)
-        print("Общий вес:", self.total_weight())
+        print("Brand:", self.brand)
+        print("Color:", self.color)
+        print("Speed:", self.max_speed)
+        print("Total weight:", self.total_weight())
         print()
 
 
@@ -103,7 +104,7 @@ car3 = CarAdvanced("BMW", "Black", 250, 1800, 2)
 car4 = CarAdvanced("Audi", "White", 230, 1600, 1)
 
 print()
-print("Задание 3")
+print("Task 3")
 print()
 
 car3.info()
@@ -113,21 +114,22 @@ print()
 
 
 # ==================================================
-# ЗАДАНИЕ 4
+# TASK 4
 # ==================================================
-# УСЛОВИЕ:
-# Создать класс Student со следующими полями:
-# - имя
-# - возраст
-# - курс
-# - средний балл
+# DESCRIPTION:
+# Create a Student class with the following fields:
+# - name
+# - age
+# - course
+# - average grade
 #
-# Создать методы:
-# - вывод информации
-# - вывод среднего балла
+# Create methods for:
+# - displaying information
+# - displaying the average grade
 #
-# РЕШЕНИЕ:
+# SOLUTION:
 # ==================================================
+
 
 class Student:
     def __init__(self, name, age, course, grade):
@@ -137,20 +139,20 @@ class Student:
         self.grade = grade
 
     def show_grade(self):
-        print("Средний балл:", self.grade)
+        print("Average grade:", self.grade)
 
     def info(self):
-        print("Имя:", self.name)
-        print("Возраст:", self.age)
-        print("Курс:", self.course)
-        print("Балл:", self.grade)
+        print("Name:", self.name)
+        print("Age:", self.age)
+        print("Course:", self.course)
+        print("Grade:", self.grade)
         print()
 
 
 student = Student("Maxim", 19, 2, 4.5)
 
 print()
-print("Задание 4")
+print("Task 4")
 print()
 
 student.info()
@@ -159,18 +161,19 @@ print()
 
 
 # ==================================================
-# ЗАДАНИЕ 5
+# TASK 5
 # ==================================================
-# УСЛОВИЕ:
-# В класс Student добавить методы:
-# - изменение имени
-# - изменение возраста
-# - изменение среднего балла
+# DESCRIPTION:
+# Add methods to the Student class for:
+# - changing the name
+# - changing the age
+# - changing the average grade
 #
-# Проверить работу методов.
+# Verify the methods.
 #
-# РЕШЕНИЕ:
+# SOLUTION:
 # ==================================================
+
 
 class StudentAdvanced(Student):
     def change_name(self, new_name):
@@ -186,7 +189,7 @@ class StudentAdvanced(Student):
 student2 = StudentAdvanced("Maxim", 19, 2, 4.5)
 
 print()
-print("Задание 5")
+print("Task 5")
 print()
 
 student2.change_name("Alex")
@@ -198,36 +201,36 @@ print()
 
 
 # ==================================================
-# ЗАДАНИЕ 6
+# TASK 6
 # ==================================================
-# УСЛОВИЕ:
-# Создать класс Calculator, который принимает строку
-# вида: "6 - 7 + 4"
+# DESCRIPTION:
+# Create a Calculator class that accepts a string
+# such as: "6 - 7 + 4"
 #
-# Реализовать вычисление выражения,
-# используя операции + и -.
+# Implement expression evaluation
+# using + and - operations.
 #
-# РЕШЕНИЕ:
+# SOLUTION:
 # ==================================================
+
 
 class Calculator:
-
     def calculate(self, text):
         parts = text.split()
 
         result = int(parts[0])
 
-        i = 1
-        while i < len(parts):
-            op = parts[i]
-            num = int(parts[i + 1])
+        index = 1
+        while index < len(parts):
+            operator = parts[index]
+            number = int(parts[index + 1])
 
-            if op == "+":
-                result += num
-            elif op == "-":
-                result -= num
+            if operator == "+":
+                result += number
+            elif operator == "-":
+                result -= number
 
-            i += 2
+            index += 2
 
         return result
 
@@ -238,13 +241,13 @@ example1 = "12 - 19 + 1"
 example2 = "1 - 3 + 10"
 
 print()
-print("Задание 6")
+print("Task 6")
 print()
 
-print("Пример:", example1)
-print("Результат:", calc.calculate(example1))
+print("Example:", example1)
+print("Result:", calc.calculate(example1))
 print()
 
-print("Пример:", example2)
-print("Результат:", calc.calculate(example2))
+print("Example:", example2)
+print("Result:", calc.calculate(example2))
 print()

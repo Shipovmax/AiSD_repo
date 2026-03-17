@@ -1,30 +1,32 @@
 class Car:
-    def __init__(self, marka, model , age , count):
-
-        self.marka = marka
+    def __init__(self, brand, model, production_year, mileage):
+        self.brand = brand
         self.model = model
-        self.age = age
-        self.count = count
-        self.__tip = 'gasoline'
+        self.production_year = production_year
+        self.mileage = mileage
+        self.__fuel_type = "gasoline"
 
     def __str__(self):
-        return f'марка {self.marka} модель {self.model} год производства {self.age} пробег брички {self.count}'
+        return (
+            f"brand {self.brand} model {self.model} "
+            f"production year {self.production_year} vehicle mileage {self.mileage}"
+        )
 
-    def obs(self):
-        if self.count > 10000:
-            return 'нужно ТО'
-        return 'не нужно ТО '
+    def needs_service(self):
+        if self.mileage > 10000:
+            return "service is required"
+        return "service is not required "
 
     @property
-    def tip(self):
-        return self.__tip
+    def fuel_type(self):
+        return self.__fuel_type
 
-    @tip.setter
-    def tip(self, tip):
-        self.__tip = tip
+    @fuel_type.setter
+    def fuel_type(self, fuel_type):
+        self.__fuel_type = fuel_type
 
-car_1 = Car('bmw' , 'x5m' , 2024 , 3000)
+
+car_1 = Car("bmw", "x5m", 2024, 3000)
 print(car_1)
-print(car_1.obs())
-print(car_1.tip)
-
+print(car_1.needs_service())
+print(car_1.fuel_type)

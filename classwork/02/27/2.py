@@ -1,12 +1,12 @@
 class MushroomsCollector:
     def __init__(self):
-        # Создаем список для каждого конкретного экземпляра (корзины)
+        # Create a separate list for each specific instance (basket).
         self.mushrooms = []
 
     def is_poisonous(self, mushroom_name):
-        # Ошибка была в условии: 'Поганка' сама по себе всегда True.
-        # Правильно проверять вхождение в список/кортеж:
-        if mushroom_name in ("Мухомор", "Поганка"):
+        # The issue in the original condition was that a standalone string is always truthy.
+        # Membership should be checked against a list or tuple.
+        if mushroom_name in ("Fly Agaric", "Toadstool"):
             return True
         return False
 
@@ -14,21 +14,21 @@ class MushroomsCollector:
         if not self.is_poisonous(mushroom_name):
             self.mushrooms.append(mushroom_name)
         else:
-            print("Нельзя добавить ядовитый гриб")
+            print("A poisonous mushroom cannot be added")
 
     def __str__(self):
-        # Соединяем элементы списка через запятую и пробел
+        # Join list items with a comma and a space.
         return ", ".join(self.mushrooms)
 
 
-# Пример запуска
+# Usage example
 collector_1 = MushroomsCollector()
-collector_1.add_mushroom("Мухомор")
-collector_1.add_mushroom("Подосиновик")
-collector_1.add_mushroom("Белый")
+collector_1.add_mushroom("Fly Agaric")
+collector_1.add_mushroom("Aspen Bolete")
+collector_1.add_mushroom("Porcini")
 print(collector_1)
 
 collector_2 = MushroomsCollector()
-collector_2.add_mushroom("Лисичка")
+collector_2.add_mushroom("Chanterelle")
 print(collector_1)
 print(collector_2)
