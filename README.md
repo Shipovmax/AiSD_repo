@@ -1,67 +1,67 @@
-# 📘 Алгоритмы и структуры данных (АиСД)
+# 📘 Algorithms and Data Structures (AiSD)
 
 [![Python](https://img.shields.io/badge/Python-3.14+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![Telegram](https://img.shields.io/badge/Telegram-@shipovm-26A5E4?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/shipovm)
 
-> Образовательный репозиторий с реализациями алгоритмов, решениями задач и учебными материалами курса.
+> Educational repository with algorithm implementations, problem solutions, and course study materials.
 
 ---
 
-## 📂 Структура проекта
+## 📂 Project Structure
 
-Проект организован по иерархии: **Тип работы → Месяц → Число**.
+The project is organized using the following hierarchy: **Work Type → Month → Day**.
 
-| Раздел | Описание | Содержимое |
+| Section | Description | Contents |
 | :--- | :--- | :--- |
-| [**`classwork/`**](./classwork/) | Практика на занятиях | Python-скрипты, разборы задач Яндекса, псевдокод |
-| [**`homework/`**](./homework/) | Домашние задания | Индивидуальные задачи по темам лекций |
+| [**`classwork/`**](./classwork/) | In-class practice | Python scripts, Yandex problem walkthroughs, pseudocode |
+| [**`homework/`**](./homework/) | Homework assignments | Individual tasks based on lecture topics |
 
-### 🌳 Карта файлов
+### 🌳 File Map
 ```text
 .
-├── classwork/       # Практические работы в аудитории
-│   ├── 02/          # Февраль (задачи 13, 20, 27 числа)
-│   └── 03/          # Март (задачи 06 числа)
-└── homework/        # Самостоятельная работа
-    ├── 02/          # Задания от 13, 20 февраля
-    └── 03/          # Задания от 06, 13 марта
+├── classwork/       # In-class practical work
+│   ├── 02/          # February (tasks for the 13th, 20th, and 27th)
+│   └── 03/          # March (tasks for the 6th)
+└── homework/        # Independent work
+    ├── 02/          # Assignments from February 13 and 20
+    └── 03/          # Assignments from March 6 and 13
 ```
 
 ---
 
-## 🛠 Ключевые темы и концепции
+## 🛠 Key Topics and Concepts
 
-- **🧱 ООП:** Глубокое погружение в классы, инкапсуляцию и магические методы (`__init__`, `__str__`, `__repr__`).
-- **📐 Алгоритмы:** Реализация алгоритмов отрисовки (псевдографика), работа с геометрическими примитивами.
-- **🔐 Криптография:** Базовые алгоритмы шифрования (например, шифр Цезаря).
-- **📝 Решение задач:** Разбор и оптимизация задач с платформы Яндекс.Контест.
+- **🧱 OOP:** In-depth work with classes, encapsulation, and magic methods (`__init__`, `__str__`, `__repr__`).
+- **📐 Algorithms:** Implementation of drawing algorithms (pseudo-graphics) and work with geometric primitives.
+- **🔐 Cryptography:** Basic encryption algorithms such as the Caesar cipher.
+- **📝 Problem Solving:** Analysis and optimization of tasks from Yandex Contest.
 
 ---
 
-## 🚀 Быстрый старт
+## 🚀 Quick Start
 
-1. **Клонирование репозитория:**
+1. **Clone the repository:**
    ```bash
    git clone https://github.com/Shipovmax/AiSD_repo.git
    cd AiSD_repo
    ```
 
-2. **Запуск скрипта:**
-   Выбирайте нужный файл и запускайте через интерпретатор:
+2. **Run a script:**
+   Choose the required file and run it with Python:
    ```bash
    python classwork/03/06/1.py
    ```
 
 ---
 
-## 📈 Планы на развитие
-- [ ] Добавление unit-тестов для алгоритмов.
-- [ ] Визуализация сортировок.
-- [ ] Расширение раздела с динамическим программированием.
+## 📈 Development Plans
+- [ ] Add unit tests for algorithms.
+- [ ] Add sorting visualizations.
+- [ ] Expand the dynamic programming section.
 
 ---
 
 <p align="center">
-  <i>Сделано с ❤️ для учебы и саморазвития</i>
+  <i>Made with ❤️ for study and self-development</i>
 </p>
