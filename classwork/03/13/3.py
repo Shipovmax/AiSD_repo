@@ -95,7 +95,11 @@ class Registry:
         print(f"\n--- Worker workload report for {year} ---")
         for worker in self.workers:
             # Find all houses where this worker was assigned in the specified year.
-            projects = [house for house in self.houses if house.is_worker_busy_in_year(worker, year)]
+            projects = [
+                house
+                for house in self.houses
+                if house.is_worker_busy_in_year(worker, year)
+            ]
             count = len(projects)
 
             if count > 0:
@@ -124,13 +128,39 @@ if __name__ == "__main__":
     registry.add_worker(worker_3)
 
     # Add construction objects with different schedules.
-    registry.add_house(House("10 Lenin St.", 5, 4, "Central", [worker_1, worker_2], "01.01.2022", "31.12.2022"))
-    registry.add_house(House("5 Mira Ave.", 9, 2, "Western", [worker_1, worker_3], "01.06.2022", "01.06.2023"))
-    registry.add_house(House("2 Severnaya St.", 16, 1, "Northern", [worker_1], "01.01.2023", "01.12.2023"))
+    registry.add_house(
+        House(
+            "10 Lenin St.",
+            5,
+            4,
+            "Central",
+            [worker_1, worker_2],
+            "01.01.2022",
+            "31.12.2022",
+        )
+    )
+    registry.add_house(
+        House(
+            "5 Mira Ave.",
+            9,
+            2,
+            "Western",
+            [worker_1, worker_3],
+            "01.06.2022",
+            "01.06.2023",
+        )
+    )
+    registry.add_house(
+        House(
+            "2 Severnaya St.", 16, 1, "Northern", [worker_1], "01.01.2023", "01.12.2023"
+        )
+    )
 
     # Interactive section: request a year from the user.
     try:
-        user_year = int(input("Enter a year to check statistics for (for example, 2022): "))
+        user_year = int(
+            input("Enter a year to check statistics for (for example, 2022): ")
+        )
         registry.show_worker_statistics(user_year)
     except ValueError:
         print("Error: please enter a numeric year value.")
