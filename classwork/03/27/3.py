@@ -1,5 +1,5 @@
-'''
-Шипов Максим Кириллович 
+"""
+Шипов Максим Кириллович
 
 Вариант 2
 Задание 3
@@ -10,7 +10,8 @@
 как с закрытыми атрибутами. Реализовать сложение, вычитание,
 умножение сумм, деление денежных сумм, используя магические методы.
 
-'''
+"""
+
 
 class Money:
     def __init__(self, rubles: int = 0, kopecks: int = 0):
@@ -19,47 +20,53 @@ class Money:
         self.__normalize()
 
     def __normalize(self):
-        '''Закрытая функция '''
+        """Закрытая функция"""
         self.__rubles += self.__kopecks // 100
         self.__kopecks = self.__kopecks % 100
 
     def __add__(self, other):
-        '''Магический метод сложения'''
+        """Магический метод сложения"""
         return Money(self.__rubles + other.__rubles, self.__kopecks + other.__kopecks)
 
     def __sub__(self, other):
-        '''Магический метод вычитания'''
-        total_kopecks = (self.__rubles * 100 + self.__kopecks) - (other.__rubles * 100 + other.__kopecks)
+        """Магический метод вычитания"""
+        total_kopecks = (self.__rubles * 100 + self.__kopecks) - (
+            other.__rubles * 100 + other.__kopecks
+        )
         return Money(0, total_kopecks)
 
     def __mul__(self, factor):
-        '''Магический метод'''
+        """Магический метод"""
         total_kopecks = int((self.__rubles * 100 + self.__kopecks) * factor)
         return Money(0, total_kopecks)
 
     def __truediv__(self, divisor):
-        '''Магический метод деления'''
+        """Магический метод деления"""
         total_kopecks = int((self.__rubles * 100 + self.__kopecks) / divisor)
         return Money(0, total_kopecks)
 
     def __eq__(self, other):
-        '''Магический метод сравнения'''
+        """Магический метод сравнения"""
         return self.__rubles == other.__rubles and self.__kopecks == other.__kopecks
 
     def __lt__(self, other):
-        '''Магический метод сравнения <'''
-        return (self.__rubles * 100 + self.__kopecks) < (other.__rubles * 100 + other.__kopecks)
+        """Магический метод сравнения <"""
+        return (self.__rubles * 100 + self.__kopecks) < (
+            other.__rubles * 100 + other.__kopecks
+        )
 
     def __le__(self, other):
-        '''Магический метод сравнения <='''
-        return (self.__rubles * 100 + self.__kopecks) <= (other.__rubles * 100 + other.__kopecks)
+        """Магический метод сравнения <="""
+        return (self.__rubles * 100 + self.__kopecks) <= (
+            other.__rubles * 100 + other.__kopecks
+        )
 
     def __str__(self):
-        '''Магический метод вывода'''
+        """Магический метод вывода"""
         return f"{self.__rubles} руб. {self.__kopecks:02d} коп."
 
     def __repr__(self):
-        '''Магический метод вывода в терминал'''
+        """Магический метод вывода в терминал"""
         return f"Money({self.__rubles}, {self.__kopecks})"
 
     def get_rubles(self):
