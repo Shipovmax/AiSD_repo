@@ -15,7 +15,7 @@ def hello(a,b):
 def main(*k):
     d = dict()
     for i in k:
-        d[i.__doc__.split()[0] = i]
+        d[i.__doc__.split()[0]] = i
     return d
 main('summa', 'raznost', 'hello')
 

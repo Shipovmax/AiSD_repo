@@ -52,7 +52,7 @@ if __name__ == "__main__":
     print(f"Загрузка {p2.name}: {p2.get_load_percentage():.1f}%")
     print(f"Загрузка {p3.name}: {p3.get_load_percentage():.1f}%")
 
-    print(f"\nСамолеты на маршруте Москва -> Санкт-Петербург:")
+    print("\nСамолеты на маршруте Москва -> Санкт-Петербург:")
     print(Plane.get_planes_by_route("Москва", "Санкт-Петербург"))
 
     print(f"\nСредняя загрузка всех самолетов: {Plane.get_average_load():.1f}%")

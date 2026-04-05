@@ -41,8 +41,6 @@ def printOut(s):
 # =============================================================================
 
 def factorial_recursive(n):
-    global _recursion_depth
-
     printIn(f"factorial({n})")
 
     if n == 0:
