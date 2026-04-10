@@ -3,32 +3,37 @@
 factorial(n) как для вызовов функций, так и для возвращаемых значений.
 '''
 
+p = 0
 
-def debug(func):
-    # func — функция, вызовы и возвраты которой надо показать.
-    def wrapper(*args, **kwargs):
-        # Печатаем имя функции и аргументы перед вызовом.
-        print("Call:", func.__name__, args, kwargs)
-        # Вызываем настоящую функцию.
-        result = func(*args, **kwargs)
-        # Печатаем то, что функция вернула.
-        print("Return:", result)
-        # Возвращаем результат дальше.
+
+def printin(func):
+    def wrapper(n):
+        global p
+        print(p * "    " + f"{func.__name__}({n})")
+        p += 1
+        return func(n)
+
+    return wrapper
+
+
+def printout(func):
+    def wrapper(n):
+        global p
+        result = func(n)
+        p -= 1
+        print(f"{p * '    '}{result}")
         return result
 
     return wrapper
 
 
-# factorial теперь будет печатать каждый вызов и каждый возврат.
-@debug
+@printout
+@printin
 def factorial(n):
-    # База рекурсии: factorial(0) и factorial(1) равны 1.
     if n == 0 or n == 1:
         return 1
 
-    # Рекурсивный шаг: n! = n * (n - 1)!.
     return n * factorial(n - 1)
 
 
-# Запускаем пример.
-print(factorial(5))
+print("Результат:", factorial(5))
