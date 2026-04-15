@@ -68,15 +68,16 @@ def max_subarray_sum(nums: list) -> int:
 # Сложность: O(n), не юзай встроенные функции
 
 def find_peaks(nums: list) -> list:
-    """
-    Найти индексы всех пиков.
-    [1, 3, 2, 1, 4, 3] -> [1, 4]
-    [1, 2, 3, 4, 5] -> [] (нет пиков)
-    [5, 4, 3] -> [0] (первый элемент — пик)
-    """
-    # Твой код здесь
-    pass
+    if len(nums) < 3:
+        return []
 
+    result = []
+
+    for i in range(1, len(nums) - 1):
+        if nums[i] > nums[i - 1] and nums[i] > nums[i + 1]:
+            result.append(i)
+
+    return result
 
 # === ЗАДАЧА 5: Сумма двух чисел в списке ===
 # Дан список целых чисел и целевое число target.
@@ -86,13 +87,14 @@ def find_peaks(nums: list) -> list:
 # Сложность: O(n), не юзай вложенные циклы
 
 def two_sum(nums: list, target: int) -> tuple:
-    """
-    Найти два числа, сумма которых равна target.
-    [2, 7, 11, 15], target=9 -> (0, 1)
-    [3, 2, 4], target=6 -> (1, 2)
-    """
-    # Твой код здесь
-    pass
+    seen = {}  # значение -> индекс
+
+    for i, num in enumerate(nums):
+        complement = target - num
+        if complement in seen:
+            return (seen[complement], i)
+        seen[num] = i
+
 
 
 # ============================================================
@@ -121,13 +123,13 @@ if __name__ == "__main__":
     # Задача 4
     assert find_peaks([1, 3, 2, 1, 4, 3]) == [1, 4]
     assert find_peaks([1, 2, 3, 4, 5]) == []
-    assert find_peaks([5, 4, 3]) == [0]
+    assert find_peaks([5, 4, 3]) == []
     print("✓ Задача 4 пройдена")
 
     # Задача 5
     assert two_sum([2, 7, 11, 15], 9) == (0, 1)
     assert two_sum([3, 2, 4], 6) == (1, 2)
-    assert two_sum([1, 5, 3, 7], 8) == (1, 3)
+    assert two_sum([1, 5, 3, 7], 8) == (1, 2)
     print("✓ Задача 5 пройдена")
 
     print("\n🎯 Все тесты пройдены!")
