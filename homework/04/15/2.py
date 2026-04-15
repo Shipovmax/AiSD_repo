@@ -136,7 +136,22 @@ def fibonacci(n: int) -> list:
     5 -> [0, 1, 1, 2, 3]
     1 -> [0]
     """
-    pass
+
+    if n == 0:
+        return []
+
+    result = [0]
+
+    if n == 1:
+        return result
+
+    result.append(1)
+
+    for i in range(2, n):
+        result.append(result[i - 1] + result[i - 2])
+
+    return result
+
 
 
 # === ЗАДАЧА 10: Перевод в двоичную систему ===
@@ -147,7 +162,18 @@ def to_binary(n: int) -> str:
     10 -> "1010"
     0 -> "0"
     """
-    pass
+
+    if n == 0:
+        return "0"
+
+    result = ""
+
+    while n > 0:
+        result = str(n % 2) + result  # каждый остаток добавляем В НАЧАЛО
+        n //= 2
+
+    return result
+
 
 
 # ============================================================
