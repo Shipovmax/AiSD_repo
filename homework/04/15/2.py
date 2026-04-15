@@ -97,8 +97,13 @@ def remove_duplicates(nums: list) -> list:
     [1, 1, 1] -> [1]
     """
 
-    for num in nums:
+    enter_list = []
 
+    for num in nums:
+        if num not in enter_list:
+            enter_list.append(num)
+
+    return enter_list
 
 
 # === ЗАДАЧА 8: Подсчёт слов в строке ===
@@ -109,7 +114,18 @@ def word_count(s: str) -> int:
     "hello world foo" -> 3
     "  spaces  here  " -> 2
     """
-    pass
+
+    count = 0
+    in_word = False
+
+    for c in s:
+        if c != ' ' and not in_word:
+            in_word = True
+            count += 1
+        elif c == ' ':
+            in_word = False
+
+    return count
 
 
 # === ЗАДАЧА 9: Числа Фибоначчи ===
