@@ -3,18 +3,24 @@ from tkinter import messagebox
 
 
 def count_staircases(n: int) -> tuple[int, list[list[int]]]:
-    results = []
+    def helper(remaining: int, min_step: int) -> list[list[int]]:
 
-    def helper(remaining: int, min_step: int, current: list):
-        step = min_step
-        while step <= remaining:
-            if remaining - step == 0 and len(current) >= 1:
-                results.append(current + [step])
-            elif remaining - step >= step + 1:
-                helper(remaining - step, step + 1, current + [step])
-            step += 1
+        if remaining == 0:
+            return [[]]
 
-    helper(n, 1, [])
+        if min_step > remaining:
+            return []
+
+        with_step = [
+            [min_step] + rest
+            for rest in helper(remaining - min_step, min_step + 1)
+        ]
+        without_step = helper(remaining, min_step + 1)
+
+        return with_step + without_step
+
+    results = [seq for seq in helper(n, 1) if len(seq) >= 2]
+
     return len(results), results
 
 
