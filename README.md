@@ -71,7 +71,7 @@ The project is organized using the following hierarchy: **Work Type â†’ Month â†
 2. **Run a script:**
    Choose the required file and run it with Python:
    ```bash
-   python3 classwork/03/06/1.py
+   python3 classwork/03/06/main.py
    ```
 
 ---
