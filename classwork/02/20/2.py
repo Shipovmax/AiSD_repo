@@ -58,7 +58,9 @@ class Triangle:
 
         # 2. Classification by sides (angles).
         if math.isclose(angles[0], angles[2]):
-            return "equilateral"  # No further checks are needed if all angles are equal.
+            return (
+                "equilateral"  # No further checks are needed if all angles are equal.
+            )
 
         if math.isclose(angles[0], angles[1]) or math.isclose(angles[1], angles[2]):
             side_kind = "isosceles"

@@ -24,6 +24,7 @@ def factorial_with_debug(n):
 # Задание 1.2: Функции printIn(s) и printOut(s)
 # =============================================================================
 
+
 def printIn(s):
     global _recursion_depth
     print("    " * _recursion_depth + s)
@@ -39,6 +40,7 @@ def printOut(s):
 # =============================================================================
 # Задание 1.3: factorial(n) с использованием printIn(s) и printOut(s)
 # =============================================================================
+
 
 def factorial_recursive(n):
     printIn(f"factorial({n})")
@@ -87,4 +89,3 @@ if __name__ == "__main__":
     print("Итеративная версия: factorial_iterative(4)")
     print("=" * 60)
     print(f"Результат: {factorial_iterative(4)}")
-

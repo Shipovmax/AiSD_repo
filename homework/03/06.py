@@ -16,10 +16,7 @@ class Employee:
 
 class FullTimeEmployee(Employee):
     def get_unpaid_vacation(self, start_date, days):
-        return (
-            f"Unpaid vacation start date: {start_date}, "
-            f"duration: {days} days."
-        )
+        return f"Unpaid vacation start date: {start_date}, duration: {days} days."
 
 
 class PartTimeEmployee(Employee):

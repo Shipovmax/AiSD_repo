@@ -1,12 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 
-MAZE = [
-    'S----',
-    '##---',
-    '---##',
-    '----X'
-]
+MAZE = ["S----", "##---", "---##", "----X"]
 
 CELL = 60
 
@@ -18,15 +13,15 @@ def solve_maze(maze: list[str]) -> list[str]:
     start = None
     for r in range(rows):
         for c in range(cols):
-            if maze[r][c] == 'S':
+            if maze[r][c] == "S":
                 start = (r, c)
                 break
 
     DIRS = {
-        'up':    (-1, 0),
-        'down':  (1, 0),
-        'left':  (0, -1),
-        'right': (0, 1),
+        "up": (-1, 0),
+        "down": (1, 0),
+        "left": (0, -1),
+        "right": (0, 1),
     }
 
     def dfs(r: int, c: int, visited: set, path: list) -> list | None:
@@ -34,9 +29,9 @@ def solve_maze(maze: list[str]) -> list[str]:
             return None
         if (r, c) in visited:
             return None
-        if maze[r][c] == '#':
+        if maze[r][c] == "#":
             return None
-        if maze[r][c] == 'X':
+        if maze[r][c] == "X":
             return path
 
         visited.add((r, c))
@@ -66,11 +61,11 @@ def run_maze_gui():
     canvas.pack()
 
     COLORS = {
-        'S': '#4CAF50',
-        'X': '#F44336',
-        '-': '#FFFFFF',
-        '#': '#424242',
-        'P': '#90CAF9',
+        "S": "#4CAF50",
+        "X": "#F44336",
+        "-": "#FFFFFF",
+        "#": "#424242",
+        "P": "#90CAF9",
     }
 
     cell_ids = {}
@@ -83,18 +78,27 @@ def run_maze_gui():
                 x1, y1 = c * CELL, r * CELL
                 x2, y2 = x1 + CELL, y1 + CELL
 
-                if highlight_cells and (r, c) in highlight_cells and char not in ('S', 'X'):
-                    color = COLORS['P']
+                if (
+                    highlight_cells
+                    and (r, c) in highlight_cells
+                    and char not in ("S", "X")
+                ):
+                    color = COLORS["P"]
                 else:
-                    color = COLORS.get(char, '#FFFFFF')
+                    color = COLORS.get(char, "#FFFFFF")
 
-                rect = canvas.create_rectangle(x1, y1, x2, y2, fill=color, outline="#BDBDBD", width=1)
+                rect = canvas.create_rectangle(
+                    x1, y1, x2, y2, fill=color, outline="#BDBDBD", width=1
+                )
                 cell_ids[(r, c)] = rect
 
-                if char in ('S', 'X'):
+                if char in ("S", "X"):
                     canvas.create_text(
-                        x1 + CELL // 2, y1 + CELL // 2,
-                        text=char, font=("Arial", 18, "bold"), fill="white"
+                        x1 + CELL // 2,
+                        y1 + CELL // 2,
+                        text=char,
+                        font=("Arial", 18, "bold"),
+                        fill="white",
                     )
 
     def on_solve():
@@ -107,10 +111,10 @@ def run_maze_gui():
         r, c = None, None
         for row in range(rows):
             for col in range(cols):
-                if maze[row][col] == 'S':
+                if maze[row][col] == "S":
                     r, c = row, col
 
-        MOVES = {'up': (-1, 0), 'down': (1, 0), 'left': (0, -1), 'right': (0, 1)}
+        MOVES = {"up": (-1, 0), "down": (1, 0), "left": (0, -1), "right": (0, 1)}
         visited_path = set()
         visited_path.add((r, c))
 
@@ -126,9 +130,18 @@ def run_maze_gui():
 
     draw_maze()
 
-    btn = tk.Button(root, text="Решить", command=on_solve,
-                    font=("Arial", 13, "bold"), bg="#1976D2", fg="white",
-                    padx=16, pady=6, relief="flat", cursor="hand2")
+    btn = tk.Button(
+        root,
+        text="Решить",
+        command=on_solve,
+        font=("Arial", 13, "bold"),
+        bg="#1976D2",
+        fg="white",
+        padx=16,
+        pady=6,
+        relief="flat",
+        cursor="hand2",
+    )
     btn.pack(pady=10)
 
     root.mainloop()

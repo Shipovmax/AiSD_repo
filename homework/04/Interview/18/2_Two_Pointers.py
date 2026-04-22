@@ -1,4 +1,4 @@
-'''
+"""
 Container With Most Water
 Дан массив height длиной n, где height[i] —
 высота вертикальной линии. Найди два столбца,
@@ -10,7 +10,8 @@ Output: 49
 Input:  height = [1,1]
 Output: 1
 Условие: O(n) по времени.
-'''
+"""
+
 
 def Most_Water(height: list[int]) -> int:
     left, right = 0, len(height) - 1

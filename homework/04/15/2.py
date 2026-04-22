@@ -2,7 +2,6 @@
 # Для чисел от 1 до n:
 # кратно 3 -> "Fizz", кратно 5 -> "Buzz", кратно 15 -> "FizzBuzz", иначе число
 # Вернуть список строк.
-from unittest import result
 
 
 def fizzbuzz(n: int) -> list:
@@ -21,9 +20,9 @@ def fizzbuzz(n: int) -> list:
     return result
 
 
-
 # === ЗАДАЧА 2: Перевернуть строку ===
 # Без срезов и reversed()
+
 
 def reverse_string(s: str) -> str:
     result = ""
@@ -37,6 +36,7 @@ def reverse_string(s: str) -> str:
 # === ЗАДАЧА 3: Подсчёт вхождений символа ===
 # Без count()
 
+
 def char_count(s: str, char: str) -> int:
     count = 0
 
@@ -48,6 +48,7 @@ def char_count(s: str, char: str) -> int:
 
 
 # === ЗАДАЧА 4: Максимум без max() ===
+
 
 def find_max(nums: list) -> int:
     maximus = nums[0]
@@ -61,6 +62,7 @@ def find_max(nums: list) -> int:
 
 # === ЗАДАЧА 5: Сумма цифр числа ===
 
+
 def digit_sum(n: int) -> int:
     result = 0
 
@@ -72,6 +74,7 @@ def digit_sum(n: int) -> int:
 
 # === ЗАДАЧА 6: Проверка на простое число ===
 
+
 def is_prime(n: int) -> bool:
     """
     7 -> True
@@ -82,14 +85,16 @@ def is_prime(n: int) -> bool:
     if n < 2:
         return False
 
-    for i in range(2, int(n ** 0.5) + 1):
+    for i in range(2, int(n**0.5) + 1):
         if n % i == 0:
             return False
 
     return True
 
+
 # === ЗАДАЧА 7: Убрать дубликаты из списка ===
 # Сохранить порядок. Без set() напрямую на результате.
+
 
 def remove_duplicates(nums: list) -> list:
     """
@@ -109,6 +114,7 @@ def remove_duplicates(nums: list) -> list:
 # === ЗАДАЧА 8: Подсчёт слов в строке ===
 # Без split()
 
+
 def word_count(s: str) -> int:
     """
     "hello world foo" -> 3
@@ -119,10 +125,10 @@ def word_count(s: str) -> int:
     in_word = False
 
     for c in s:
-        if c != ' ' and not in_word:
+        if c != " " and not in_word:
             in_word = True
             count += 1
-        elif c == ' ':
+        elif c == " ":
             in_word = False
 
     return count
@@ -130,6 +136,7 @@ def word_count(s: str) -> int:
 
 # === ЗАДАЧА 9: Числа Фибоначчи ===
 # Вернуть список первых n чисел Фибоначчи
+
 
 def fibonacci(n: int) -> list:
     """
@@ -153,9 +160,9 @@ def fibonacci(n: int) -> list:
     return result
 
 
-
 # === ЗАДАЧА 10: Перевод в двоичную систему ===
 # Без bin()
+
 
 def to_binary(n: int) -> str:
     """
@@ -173,7 +180,6 @@ def to_binary(n: int) -> str:
         n //= 2
 
     return result
-
 
 
 # ============================================================

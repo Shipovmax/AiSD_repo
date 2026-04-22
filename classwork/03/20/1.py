@@ -14,13 +14,13 @@ class LibraryItem:
         return f"{self.title} (ID: {self.item_id}), страниц: {self.pages}"
 
     def __eq__(self, other) -> bool:
-        '''Сравнивает элементы по количеству страниц. == '''
+        """Сравнивает элементы по количеству страниц. =="""
         if not isinstance(other, LibraryItem):
             return NotImplemented
         return self.pages == other.pages
 
     def __lt__(self, other) -> bool:
-        '''Сравнивает элементы по количеству страниц. < '''
+        """Сравнивает элементы по количеству страниц. <"""
         if not isinstance(other, LibraryItem):
             return NotImplemented
         return self.pages < other.pages
@@ -37,7 +37,9 @@ class Book(LibraryItem):
         return f"Книга '{self.title}' от автора {self.author}"
 
     def __str__(self) -> str:
-        return f"{self.title} от {self.author} (ID: {self.item_id}), страниц: {self.pages}"
+        return (
+            f"{self.title} от {self.author} (ID: {self.item_id}), страниц: {self.pages}"
+        )
 
     def __add__(self, other):
         """Складывает две книги, если они имеют одного автора."""
@@ -65,7 +67,7 @@ class Magazine(LibraryItem):
         return f"{self.title}, выпуск {self.issue_number} (ID: {self.item_id}), страниц: {self.pages}"
 
     def __gt__(self, other) -> bool:
-        '''Сравнивает элементы по номеру выпуска. >'''
+        """Сравнивает элементы по номеру выпуска. >"""
         if not isinstance(other, Magazine):
             return NotImplemented
         return self.issue_number > other.issue_number

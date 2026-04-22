@@ -5,7 +5,7 @@ def is_solvable(maze: list[str]) -> bool:
     start = None
     for r in range(rows):
         for c in range(cols):
-            if maze[r][c] == 'S':
+            if maze[r][c] == "S":
                 start = (r, c)
                 break
 
@@ -14,9 +14,9 @@ def is_solvable(maze: list[str]) -> bool:
             return False
         if (r, c) in visited:
             return False
-        if maze[r][c] == '#':
+        if maze[r][c] == "#":
             return False
-        if maze[r][c] == 'X':
+        if maze[r][c] == "X":
             return True
 
         visited.add((r, c))

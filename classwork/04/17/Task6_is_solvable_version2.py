@@ -8,13 +8,12 @@ def is_solvable(maze: list[str]) -> bool:
         return [
             (r + dr, c + dc)
             for dr, dc in [(-1, 0), (1, 0), (0, -1), (0, 1)]
-            if cell(r + dr, c + dc) not in (None, '#')
+            if cell(r + dr, c + dc) not in (None, "#")
         ]
 
     def find_char(ch: str) -> tuple[int, int] | None:
         return next(
-            ((r, c) for r in range(rows) for c in range(cols) if maze[r][c] == ch),
-            None
+            ((r, c) for r in range(rows) for c in range(cols) if maze[r][c] == ch), None
         )
 
     def bfs(queue: list[tuple[int, int]], visited: frozenset) -> bool:
@@ -24,7 +23,7 @@ def is_solvable(maze: list[str]) -> bool:
 
         current, *rest = queue
 
-        if cell(*current) == 'X':
+        if cell(*current) == "X":
             return True
 
         new_visited = visited | {current}
@@ -32,7 +31,7 @@ def is_solvable(maze: list[str]) -> bool:
 
         return bfs(rest + new_nodes, new_visited)
 
-    start = find_char('S')
+    start = find_char("S")
     return start is not None and bfs([start], frozenset())
 
 

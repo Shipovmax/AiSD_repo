@@ -3,6 +3,7 @@ def double(string: str) -> str:
         return ""
     return string[0] * 2 + double(string[1:])
 
-print(double("abc"))   # "aabbcc"
-print(double("hello")) # "hheelllloo"
-print(double(""))      # ""
+
+print(double("abc"))  # "aabbcc"
+print(double("hello"))  # "hheelllloo"
+print(double(""))  # ""

@@ -1,5 +1,6 @@
 VOWELS = set("aeiouAEIOUаеёиоуыэюяАЕЁИОУЫЭЮЯ")
 
+
 def remove_vowels(string: str) -> str:
     if not string:
         return ""

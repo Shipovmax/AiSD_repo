@@ -12,8 +12,7 @@ def count_staircases(n: int) -> tuple[int, list[list[int]]]:
             return []
 
         with_step = [
-            [min_step] + rest
-            for rest in helper(remaining - min_step, min_step + 1)
+            [min_step] + rest for rest in helper(remaining - min_step, min_step + 1)
         ]
         without_step = helper(remaining, min_step + 1)
 
@@ -32,7 +31,9 @@ def run_staircase_gui():
     frame_top = tk.Frame(root, pady=10)
     frame_top.pack()
 
-    tk.Label(frame_top, text="Количество кубиков n:", font=("Arial", 12)).pack(side="left", padx=6)
+    tk.Label(frame_top, text="Количество кубиков n:", font=("Arial", 12)).pack(
+        side="left", padx=6
+    )
 
     entry = tk.Entry(frame_top, font=("Arial", 12), width=6, justify="center")
     entry.insert(0, "6")
@@ -48,7 +49,9 @@ def run_staircase_gui():
         canvas.delete("all")
 
         if not staircases:
-            canvas.create_text(350, 200, text="Нет лесенок", font=("Arial", 14), fill="#888")
+            canvas.create_text(
+                350, 200, text="Нет лесенок", font=("Arial", 14), fill="#888"
+            )
             return
 
         block = 20
@@ -72,14 +75,17 @@ def run_staircase_gui():
                     by1 = y_offset + max_height - (block_idx + 1) * block
                     bx2 = bx1 + block - 1
                     by2 = by1 + block - 1
-                    canvas.create_rectangle(bx1, by1, bx2, by2,
-                                            fill=color, outline="#546E7A", width=1)
+                    canvas.create_rectangle(
+                        bx1, by1, bx2, by2, fill=color, outline="#546E7A", width=1
+                    )
 
             label_x = x_offset + len(staircase) * block // 2
             canvas.create_text(
-                label_x, y_offset + max_height + 14,
+                label_x,
+                y_offset + max_height + 14,
                 text="+".join(map(str, staircase)),
-                font=("Arial", 8), fill="#333"
+                font=("Arial", 8),
+                fill="#333",
             )
 
             x_offset += len(staircase) * block + gap
@@ -97,9 +103,18 @@ def run_staircase_gui():
         result_label.config(text=f"Количество лесенок из {n} кубиков: {count}")
         draw_staircases(staircases)
 
-    btn = tk.Button(root, text="Посчитать", command=on_calculate,
-                    font=("Arial", 12, "bold"), bg="#1976D2", fg="white",
-                    padx=14, pady=5, relief="flat", cursor="hand2")
+    btn = tk.Button(
+        root,
+        text="Посчитать",
+        command=on_calculate,
+        font=("Arial", 12, "bold"),
+        bg="#1976D2",
+        fg="white",
+        padx=14,
+        pady=5,
+        relief="flat",
+        cursor="hand2",
+    )
     btn.pack(pady=6)
 
     on_calculate()

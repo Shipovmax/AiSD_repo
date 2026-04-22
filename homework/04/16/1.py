@@ -15,6 +15,7 @@
 #   is_anagram("Hello", "world")   -> False
 #   is_anagram("Astronomer", "Moon starer") -> True
 
+
 def is_anagram(s1: str, s2: str) -> bool:
     s1 = s1.replace(" ", "").lower()
     s2 = s2.replace(" ", "").lower()
@@ -44,6 +45,7 @@ def is_anagram(s1: str, s2: str) -> bool:
 #   is_palindrome("racecar")              -> True
 #   is_palindrome("A man a plan a canal Panama") -> True
 #   is_palindrome("hello")                -> False
+
 
 def is_palindrome(s: str) -> bool:
     cleaned = ""
@@ -75,6 +77,7 @@ def is_palindrome(s: str) -> bool:
 #   two_sum([3, 2, 4], 6)       -> [1, 2]   (2 + 4 = 6)
 #   two_sum([3, 3], 6)          -> [0, 1]
 
+
 def two_sum(nums: list, target: int) -> list:
     seen = {}  # значение -> индекс
 
@@ -98,6 +101,7 @@ def two_sum(nums: list, target: int) -> list:
 #
 #   group_by_first_letter([]) -> {}
 
+
 def group_by_first_letter(words: list) -> dict:
     result = {}
 
@@ -119,6 +123,7 @@ def group_by_first_letter(words: list) -> dict:
 #   compress("aabcccdddd")  -> "a2bc3d4"
 #   compress("abc")         -> "abc"        (сжатие не даёт выигрыша)
 #   compress("aaaa")        -> "a4"
+
 
 def compress(s: str) -> str:
     if not s:
@@ -153,6 +158,7 @@ def compress(s: str) -> str:
 #   is_valid_brackets("([)]")      -> False
 #   is_valid_brackets("{[]}")      -> True
 
+
 def is_valid_brackets(s: str) -> bool:
     stack = []
     mapping = {")": "(", "}": "{", "]": "["}
@@ -178,6 +184,7 @@ def is_valid_brackets(s: str) -> bool:
 #   reverse_words("hello world")       -> "world hello"
 #   reverse_words("  the sky  is blue  ") -> "blue is sky the"
 #   reverse_words("one")               -> "one"
+
 
 def reverse_words(s: str) -> str:
     words = []
@@ -216,6 +223,7 @@ def reverse_words(s: str) -> str:
 #   4 5 6    ->      8 5 2
 #   7 8 9            9 6 3
 
+
 def rotate_matrix(matrix: list) -> list:
     n = len(matrix)
 
@@ -244,6 +252,7 @@ def rotate_matrix(matrix: list) -> list:
 # Примеры:
 #   armstrong_numbers(1, 500)   -> [1, 2, 3, 4, 5, 6, 7, 8, 9, 153, 370, 371, 407]
 #   armstrong_numbers(100, 200) -> [153]
+
 
 def armstrong_numbers(start: int, end: int) -> list:
     result = []
@@ -274,6 +283,7 @@ def armstrong_numbers(start: int, end: int) -> list:
 #   lcm(4, 6)   -> 12
 #   lcm(7, 5)   -> 35
 
+
 def gcd(a: int, b: int) -> int:
     while b:
         a, b = b, a % b
@@ -289,7 +299,6 @@ def lcm(a: int, b: int) -> int:
 # ============================================================
 
 if __name__ == "__main__":
-
     # --- Задача 1: Анаграммы ---
     assert is_anagram("listen", "silent") == True
     assert is_anagram("Hello", "world") == False
@@ -318,14 +327,13 @@ if __name__ == "__main__":
     print("✓ Задача 3 пройдена")
 
     # --- Задача 4: Группировка по первой букве ---
-    assert group_by_first_letter(["apple", "ant", "banana", "avocado", "blueberry"]) == {
-        "a": ["apple", "ant", "avocado"],
-        "b": ["banana", "blueberry"]
-    }
+    assert group_by_first_letter(
+        ["apple", "ant", "banana", "avocado", "blueberry"]
+    ) == {"a": ["apple", "ant", "avocado"], "b": ["banana", "blueberry"]}
     assert group_by_first_letter([]) == {}
     assert group_by_first_letter(["Zoo", "zebra", "ant"]) == {
         "z": ["Zoo", "zebra"],
-        "a": ["ant"]
+        "a": ["ant"],
     }
     assert group_by_first_letter(["one"]) == {"o": ["one"]}
     print("✓ Задача 4 пройдена")
@@ -335,7 +343,7 @@ if __name__ == "__main__":
     assert compress("abc") == "abc"
     assert compress("aaaa") == "a4"
     assert compress("") == ""
-    assert compress("aabbcc") == "aabbcc"   # "a2b2c2" — не короче, возвращаем исходную
+    assert compress("aabbcc") == "aabbcc"  # "a2b2c2" — не короче, возвращаем исходную
     assert compress("aaabbb") == "a3b3"
     assert compress("a") == "a"
     print("✓ Задача 5 пройдена")
@@ -374,7 +382,7 @@ if __name__ == "__main__":
         [13, 9, 5, 1],
         [14, 10, 6, 2],
         [15, 11, 7, 3],
-        [16, 12, 8, 4]
+        [16, 12, 8, 4],
     ]
     print("✓ Задача 8 пройдена")
 
