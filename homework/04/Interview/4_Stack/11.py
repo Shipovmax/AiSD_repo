@@ -26,5 +26,5 @@ def is_valid(s: str) -> bool:
 
 # Тесты
 print(is_valid("()[]{}"))  # True
-print(is_valid("([)]"))  # False
-print(is_valid("{[]}"))  # True
+print(is_valid("([)]"))    # False
+print(is_valid("{[]}"))    # True
