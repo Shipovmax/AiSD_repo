@@ -1,6 +1,10 @@
 def two_sum_sorted(numbers: list[int], target: int) -> list[int]:
-    
-    left = 0 
+    '''
+    Дан отсортированный массив и число target.
+    Найди два индекса (1-based) элементов, сумма 
+    которых равна target.
+    '''
+    left  = 0 
     right = len(numbers) - 1
 
     while left < right:
@@ -20,6 +24,6 @@ def two_sum_sorted(numbers: list[int], target: int) -> list[int]:
 print(two_sum_sorted([1,2,3,4,5,6,7,8,9,10], 4))
 
 '''
-Время O(n)
+Время  O(n)
 Память O(1)
 '''
