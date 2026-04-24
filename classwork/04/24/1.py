@@ -26,4 +26,10 @@ a =['aw', 'dfg', 'acpo']
 rez = list(filter(lambda x:x.upper() if x[0]=='a' else 0 , a))
 print(rez)
 
-rez = list(map(x**2, filter(lambda x: x / 2 == 0, a)))
+
+# ---------------------------------
+
+a = [1, 2, 3, 4, 5, 6]
+
+rez = list(map(lambda x: x**2, filter(lambda x: x % 2 == 0, a)))
+print(rez)  # [4, 16, 36]
