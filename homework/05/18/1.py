@@ -39,10 +39,3 @@ def check_brackets(code_string):
                 return False
             stack.pop()
     return stack.is_empty()
-
-
-test_1 = "((dsasdas((das(d)das)d)asd)da)"
-test_2 = "(f(gfhd((hgfdg((fghh)dads)das))ds)ad)d(ads())))"
-
-print(check_brackets(test_1))
-print(check_brackets(test_2))
