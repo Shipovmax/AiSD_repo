@@ -58,3 +58,5 @@ class StudentNode:
 
 
 student = StudentNode("Maxim","Shipov", "253585", "1")
+
+student
