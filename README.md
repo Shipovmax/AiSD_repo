@@ -1,88 +1,85 @@
-# 📘 Algorithms and Data Structures (AiSD)
+# 📘 Алгоритмы и Структуры Данных (АиСД)
+
+Образовательный репозиторий с реализациями алгоритмов, решениями задач и материалами для подготовки к экзамену в Финансовом университете.
 
 [![Python](https://img.shields.io/badge/Python-3.9+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![Telegram](https://img.shields.io/badge/Telegram-@shipovm-26A5E4?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/shipovm)
 
-> Educational repository with algorithm implementations, problem solutions, and course study materials.
-
 ---
 
-## 📂 Project Structure
+## 📂 Структура проекта
 
-The project is organized using the following hierarchy: **Work Type → Month → Day**.
+Проект организован по иерархии: **Тип работы $\to$ Месяц $\to$ День**.
 
-| Section | Description | Contents |
+| Раздел | Описание | Содержимое |
 | :--- | :--- | :--- |
-| [**`classwork/`**](./classwork/) | In-class practice | Python scripts, Yandex problem walkthroughs, pseudocode |
-| [**`homework/`**](./homework/) | Homework assignments | Individual tasks based on lecture topics |
+| [**`exam/`**](./exam/) | **Подготовка к экзамену** | Интенсив-курс: реализации структур и алгоритмов "с нуля" |
+| [**`classwork/`**](./classwork/) | Практические работы в классе | Скрипты, разборы задач Яндекс.Контеста, псевдокод |
+| [**`homework/`**](./homework/) | Домашние задания | Индивидуальные задачи по темам лекций |
 
-### 🌳 File Map
+### 🌳 Карта файлов
 ```text
 .
-├── classwork/             # In-class practical work
-│   ├── 02/                # February
-│   │   ├── 13/            # Feb 13 — OOP basics, classes
-│   │   ├── 20/            # Feb 20 — OOP, encapsulation
-│   │   └── 27/            # Feb 27 — Pseudocode, Yandex problems (tasks 1–11)
-│   ├── 03/                # March
-│   │   ├── 06/            # Mar 06 — Inheritance, OOP
-│   │   ├── 13/            # Mar 13 — Magic methods, class methods
-│   │   ├── 20/            # Mar 20 — OOP with type hints (Vehicle hierarchy)
-│   │   └── 27/            # Mar 27 — Functional programming, recursion, money class
-│   │       ├── factorial.py
-│   │       ├── 1.py       # Plane class (variant 2)
-│   │       ├── 2.py       # Computer class with inheritance
-│   │       ├── 3.py       # Money class with magic methods
-│   │       ├── Лекция_12.ipynb
-│   │       └── ФП_полное_руководство.md
-│   └── 04/                # April
-│       └── 02/            # Apr 02 — Fibonacci (recursion), docstring-based dict
-└── homework/              # Independent work
-    ├── 02/                # February
-    │   ├── 13.py          # OOP tasks
-    │   └── 20.py          # Clock class (minutes → hours/seconds)
-    └── 03/                # March
-        ├── 06.py          # Employee/FullTime/PartTime (inheritance, vacation)
-        └── 13.py          # Student hierarchy + universal search
+├── exam/                # База подготовки к экзамену (8-дневный спринт)
+│   └── README.md         # Подробный план и навигация по подготовке
+├── classwork/           # Практические работы
+│   ├── 02/              # Февраль
+│   │   ├── 13/          # 13 фев — Основы ООП, классы
+│   │   ├── 20/          # 20 фев — ООП, инкапсуляция
+│   │   └── 27/          # 27 фев — Псевдокод, задачи Яндекс.Контеста (1–11)
+│   ├── 03/              # Март
+│   │   ├── 06/          # 06 мар — Наследование, ООП
+│   │   ├── 13/          # 13 мар — Магические методы, методы класса
+│   │   ├── 20/          # 20 мар — ООП с типизацией (Иерархия Vehicle)
+│   │   └── 27/          # 27 мар — ФП, рекурсия, класс Money
+│   └── 04/              # Апрель
+│       └── 02/          # 02 апр — Числа Фибоначчи (рекурсия), словари на docstrings
+└── homework/            # Домашние задания
+    ├── 02/              # Февраль
+    │   ├── 13.py        # Задачи по ООП
+    │   └── 20.py        # Класс Clock (минуты $\to$ часы/секунды)
+    └── 03/              # Март
+        ├── 06.py        # Employee/FullTime/PartTime (наследование, отпуск)
+        └── 13.py        # Иерархия Student + универсальный поиск
 ```
 
 ---
 
-## 🛠 Key Topics and Concepts
+## 🛠 Ключевые темы и концепции
 
-- **🧱 OOP:** In-depth work with classes, encapsulation, and magic methods (`__init__`, `__str__`, `__repr__`, `__add__`, `__eq__`, etc.).
-- **🔁 Inheritance:** Base and derived classes, method overriding, `super()`.
-- **📐 Algorithms:** Recursive algorithms (factorial, Fibonacci), drawing algorithms (pseudo-graphics), and geometric primitives.
-- **🔗 Functional Programming:** Decorators, `map`/`filter`/`reduce`, `*args`/`**kwargs`, monads, currying, pattern matching.
-- **🔐 Cryptography:** Basic encryption algorithms such as the Caesar cipher.
-- **📝 Problem Solving:** Analysis and optimization of tasks from Yandex Contest.
+- **🧱 ООП:** Глубокая работа с классами, инкапсуляция и магические методы (`__init__`, `__str__`, `__repr__`, `__add__`, `__eq__` и др.).
+- **🔁 Наследование:** Базовые и производные классы, переопределение методов, использование `super()`.
+- **📐 Алгоритмы:** Рекурсивные алгоритмы (факториал, Фибоначчи), алгоритмы отрисовки, геометрические примитивы.
+- **🔗 Функциональное программирование:** Декораторы, `map`/`filter`/`reduce`, `*args`/`**kwargs`, монады, каррирование.
+- **🔐 Криптография:** Базовые алгоритмы шифрования (например, шифр Цезаря).
+- **📝 Решение задач:** Анализ и оптимизация задач из Яндекс.Контеста.
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Быстрый старт
 
-1. **Clone the repository:**
+1. **Клонируйте репозиторий:**
    ```bash
    git clone https://github.com/Shipovmax/AiSD_repo.git
    cd AiSD_repo
    ```
 
-2. **Run a script:**
-   Choose the required file and run it with Python:
+2. **Запуск скрипта:**
+   Выберите нужный файл и запустите его с помощью Python:
    ```bash
-   python3 classwork/03/06/main.py
+   python3 exam/day1_recursion.py
    ```
 
 ---
 
-## 📈 Development Plans
-- [ ] Add unit tests for algorithms.
-- [ ] Add sorting visualizations.
-- [ ] Expand the dynamic programming section.
+## 📈 Планы развития
+- [ ] Добавить unit-тесты для алгоритмов.
+- [ ] Добавить визуализацию сортировок.
+- [ ] Расширить раздел динамического программирования.
 
 ---
 
 <p align="center">
-  <i>Made with ❤️ for study and self-development</i>
+  <i>Сделано с ❤️ для учебы и саморазвития</i>
 </p>
