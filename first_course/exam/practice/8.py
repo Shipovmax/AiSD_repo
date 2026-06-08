@@ -64,7 +64,7 @@ def search_restaurants(database, kitchen: str = None, min_rating: float = None):
     results = []
 
     for rest in database:
-        if kitchen and rest.kitchen_type.lower() != kitchen.lower():
+        if kitchen and rest.sport_type.lower() != kitchen.lower():
             continue
         if min_rating and rest.rating < min_rating:
             continue
