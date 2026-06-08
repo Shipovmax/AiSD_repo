@@ -1,19 +1,9 @@
-'''
-Создайте стек, который хранит элементы только определенной
-длины (задается при инициализации).
-'''
-
-
 class Stack:
-    def __init__(self, required_len: int):
+    def __init__(self):
         self.__items = []
-        self.required_len = required_len
 
     def push(self, item):
-        if hasattr(item, "__len__") and len(item) == self.required_len:
-            self.__items.append(item)
-        else:
-            print(f"Элемент {item} отклонен: требуется длина {self.required_len}")
+        self.__items.append(item)
 
     def pop(self):
         if not self.is_empty():
