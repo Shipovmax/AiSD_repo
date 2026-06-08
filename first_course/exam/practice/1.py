@@ -42,5 +42,5 @@ print(book)
 
 print(f"Новая книга? {book.check_if_new_book()}")
 
-book.genre = "Программирование"  # Установка работает как с обычной переменной
+book.genre = "Программирование"
 print(f"Жанр книги: {book.genre}")
