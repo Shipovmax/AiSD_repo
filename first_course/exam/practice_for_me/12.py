@@ -13,7 +13,7 @@
 
 class Student:
     def __init__(
-        self, name: str, second_name: str, age: int, list_of_assessment: list = None
+            self, name: str, second_name: str, age: int, list_of_assessment: list = None
     ):
         self.name = name
         self.second_name = second_name
